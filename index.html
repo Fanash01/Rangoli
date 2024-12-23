@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Rangoli Designs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        nav {
+            background-color: #ff5733;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff5733;
+            font-size: 2.5em;
+        }
+
+        .home-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .home-content img {
+            max-width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .home-content div {
+            max-width: 50%;
+        }
+
+        video {
+            display: block;
+            margin: 20px auto;
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #about-me {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #about-me h2 {
+            color: #ff5733;
+        }
+
+        #about-me p {
+            font-size: 1.1em;
+        }
+
+        /* Rolling Banner Animation */
+        .banner {
+            background-color: #ffcccb;
+            color: #000;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.2em;
+            animation: scrollBanner 10s linear infinite;
+            border: 2px solid #ff5733;
+            font-weight: bold;
+        }
+
+        @keyframes scrollBanner {
+            0% {transform: translateX(100%);}
+            100% {transform: translateX(-100%);}
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="designs.html">Designs</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Rolling Banner -->
+    <div id="rolling-banner" class="banner">Special Festival Discount Available</div>
+
+    <!-- Home Page Content -->
+    <section id="home">
+        <h1>Bringing Colors to Your Celebration</h1>
+        <div class="home-content">
+            <img src="images/IMG-20241008-WA0047.jpg" alt="Finest Rangoli Design">
+            <div>
+                <p>Rangoli is a traditional Indian art form that involves creating intricate patterns on the ground, typically at the entrance of homes, using materials like colored powders, flower petals, and rice flour. It is most commonly associated with festivals, particularly Diwali, where it serves as a vibrant expression of joy and creativity.
+
+                    Importance of Rangoli
+                    
+                    Cultural Significance: Rangoli reflects India's rich cultural heritage and is a symbol of hospitality. It is believed to welcome guests and deities into the home, especially Goddess Lakshmi during Diwali, inviting prosperity and good fortune.
+                    
+                    Spiritual Meaning: The designs are thought to ward off evil spirits and bring positive energy. They are often created as a form of devotion and gratitude towards deities, enhancing the spiritual atmosphere during religious ceremonies.
+                    
+                    Artistic Expression: Rangoli allows individuals to showcase their creativity and artistic skills. Families often come together to create unique designs, fostering community spirit and bonding during celebrations.
+                    
+                    Tradition and Continuity: The practice of making rangoli is passed down through generations, preserving cultural traditions and connecting families to their heritage.
+                    
+                    In essence, rangoli is not just decorative; it embodies cultural values, spiritual beliefs, and artistic expression, making it an integral part of Indian festivities and daily life. </p>
+            </div>
+        </div>
+        <video controls>
+            <source src="videos/rangoli-assembly.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="about-me">
+            <h2>About Me</h2>
+            <p>Hello! I’m [Your Name], a passionate homemaker and devoted mother of two wonderful children. While my primary role is nurturing my family, I’ve discovered a creative outlet that brings me immense joy: the beautiful art of rangoli.
+
+                In my free time, I immersed myself in learning various rangoli designs, exploring the vibrant colors and intricate patterns that this traditional Indian art form offers. Each design I create is not just a reflection of my creativity but also a way to express my cultural heritage and bring beauty into my home.
+                
+                Driven by my love for rangoli, I decided to turn this passion into a small business. It allows me to share my creations with others while keeping myself engaged and fulfilled. I believe that every rangoli tells a story, and I strive to craft designs that resonate with joy, positivity, and celebration.
+                
+                Thank you for visiting my site! I hope you find inspiration in my work and perhaps even discover the joy of creating your own rangoli designs. Feel free to customize it further or add any personal touches to make it truly yours! </p>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to toggle the rolling banner
+        const banner = document.getElementById('rolling-banner');
+        function toggleBanner(show) {
+            banner.style.display = show ? 'block' : 'none';
+        }
+        // Example: toggleBanner(false) to hide the banner
+    </script>
+</body>
+</html>

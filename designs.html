@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs - Rangoli Designs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            background-color: #ff5733;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff5733;
+            margin: 20px 0;
+        }
+
+        .category-select {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .category-select select {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .designs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+
+        .design-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .design-box img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .design-box p {
+            margin: 10px 0;
+        }
+        /* Rolling Banner Animation */
+        .banner {
+        background-color: #ffcccb;
+        color: #000;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 1.2em;
+        animation: scrollBanner 10s linear infinite;
+        border: 2px solid #ff5733;
+        font-weight: bold;
+        }
+
+        @keyframes scrollBanner {
+        0% {transform: translateX(100%);}
+        100% {transform: translateX(-100%);}
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="designs.html">Designs</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Rolling Banner -->
+    <div id="rolling-banner" class="banner">Special Festival Discount Available</div>
+
+    <h1>Our Rangoli Designs</h1>
+
+    <div class="category-select">
+        <label for="category">Select Design Category:</label>
+        <select id="category" onchange="filterDesigns()">
+            <option value="all">All Designs</option>
+            <option value="full">Full Designs</option>
+            <option value="components">Design Components</option>
+        </select>
+    </div>
+
+    <div class="designs-container" id="designs-container"></div>
+
+    <script>
+        async function fetchDesigns(category = "all") {
+            try {
+                const response = await fetch("designs.json");
+                const data = await response.json();
+    
+                let designsToLoad;
+                if (category === "full") {
+                    designsToLoad = data.fullDesigns;
+                } else if (category === "components") {
+                    designsToLoad = data.componentDesigns;
+                } else {
+                    designsToLoad = [...data.fullDesigns, ...data.componentDesigns];
+                }
+    
+                renderDesigns(designsToLoad, category);
+            } catch (error) {
+                console.error("Error fetching designs:", error);
+            }
+        }
+    
+        function renderDesigns(designs, category) {
+            const container = document.getElementById("designs-container");
+            container.innerHTML = ""; // Clear previous designs
+    
+            designs.forEach((design, index) => {
+                const designBox = document.createElement("div");
+                designBox.classList.add("design-box");
+    
+                const img = document.createElement("img");
+                img.src = `images/${design.file}`;
+                img.alt = `${design.file.includes("component_") ? "C.Design" : "Design"} ${index + 1}`;
+                designBox.appendChild(img);
+    
+                const designNumber = document.createElement("p");
+                const prefix = category === "components" || design.file.includes("component_") ? "C.Design" : "Design";
+                designNumber.textContent = `${prefix} ${index + 1}`;
+                designBox.appendChild(designNumber);
+    
+                const price = document.createElement("p");
+                price.textContent = `Price: ₹${design.price}`;
+                designBox.appendChild(price);
+    
+                container.appendChild(designBox);
+            });
+        }
+    
+        function filterDesigns() {
+            const category = document.getElementById("category").value;
+            fetchDesigns(category);
+        }
+    
+        // Load all designs initially
+        fetchDesigns();
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs - Rangoli Designs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        nav {
+            background-color: #ff5733;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff5733;
+            font-size: 2.5em;
+        }
+
+        .design-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .design-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .design-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .design-item h3 {
+            color: #ff5733;
+            margin: 10px 0;
+        }
+
+        .design-item p {
+            font-size: 1.1em;
+        }
+
+        .dropdown {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .dropdown select {
+            padding: 10px;
+            font-size: 1.1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="designs.html">Designs</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Rolling Banner -->
+    <div id="rolling-banner" class="banner">Special Festival Discount Available</div>
+
+    <!-- Designs Page Content -->
+    <h1>Our Rangoli Designs</h1>
+
+    <div class="dropdown">
+        <label for="design-type">Choose Design Type:</label>
+        <select id="design-type" onchange="filterDesigns()">
+            <option value="all">All</option>
+            <option value="full">Full Designs</option>
+            <option value="components">Design Components</option>
+        </select>
+    </div>
+
+    <div class="design-container" id="designs">
+        <!-- Example of a Design Item -->
+        <div class="design-item" data-type="full">
+            <img src="images/IMG-20241008-WA0007.jpg" alt="Design 1">
+            <h3>Design No. 1</h3>
+            <p>Price: $150</p>
+        </div>
+        <div class="design-item" data-type="full">
+            <img src="images/IMG-20241008-WA0004.jpg" alt="Design 1">
+            <h3>Design No. 2</h3>
+            <p>Price: $100</p>
+        </div>
+        <div class="design-item" data-type="full">
+            <img src="images/IMG-20241008-WA0037.jpg" alt="Design 1">
+            <h3>Design No. 3</h3>
+            <p>Price: $150</p>
+        </div>
+        <div class="design-item" data-type="full">
+            <img src="images/IMG-20241008-WA0038.jpg" alt="Design 1">
+            <h3>Design No. 4</h3>
+            <p>Price: $100</p>
+        </div>
+        <div class="design-item" data-type="components">
+            <img src="images/IMG-20241008-WA0078.jpg" alt="Design 2">
+            <h3>C.Design No. 1</h3>
+            <p>Price: $30</p>
+        </div>
+        <div class="design-item" data-type="components">
+            <img src="images/IMG-20241008-WA0014.jpg" alt="Design 2">
+            <h3>C.Design No. 2</h3>
+            <p>Price: $80</p>
+        </div>
+        <div class="design-item" data-type="components">
+            <img src="images/IMG-20241008-WA0055.jpg" alt="Design 2">
+            <h3>C.Design No. 3</h3>
+            <p>Price: $30</p>
+        </div>
+        <div class="design-item" data-type="components">
+            <img src="images/IMG-20241008-WA0014.jpg" alt="Design 2">
+            <h3>C.Design No. 4</h3>
+            <p>Price: $80</p>
+        </div>
+        <!-- Add more designs as needed -->
+    </div>
+
+    <script>
+        function filterDesigns() {
+            const type = document.getElementById('design-type').value;
+            const designs = document.querySelectorAll('.design-item');
+
+            designs.forEach(design => {
+                if (type === 'all' || design.dataset.type === type) {
+                    design.style.display = 'block';
+                } else {
+                    design.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

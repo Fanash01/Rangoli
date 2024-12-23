@@ -1,0 +1,20 @@
+
+
+
+{
+    "fullDesigns": [
+        { "designNumber": 1, "price": 500, "file": "full_design1.jpg" },
+        { "designNumber": 2, "price": 50, "file": "full_design2.jpg" },
+        { "designNumber": 3, "price": 600, "file": "full_design3.jpg" },
+        { "designNumber": 4, "price": 50, "file": "full_design4.jpg" },
+        { "designNumber": 5, "price": 600, "file": "full_design5.jpg" }
+    ],
+    "componentDesigns": [
+        { "designNumber": 1, "price": 1300, "file": "component_design1.jpg" },
+        { "designNumber": 2, "price": 2350, "file": "component_design2.jpg" },
+        { "designNumber": 3, "price": 5400, "file": "component_design3.jpg" },
+        { "designNumber": 4, "price": 2350, "file": "component_design4.jpg" },
+        { "designNumber": 5, "price": 5400, "file": "component_design5.jpg" }
+    ]
+}
+
